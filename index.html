@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Rikao - Nagaur's local grocery delivery and services. You order, we deliver.">
+  <title>Rikao | Grocery Delivery & Services - Nagaur</title>
+  <style>
+    :root{
+      --green:#12633d; --dark:#12352b; --gold:#e4a51b; --cream:#fffaf0;
+      --light:#f3f8f1; --text:#18352d; --muted:#66756f; --white:#fff;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Arial,Helvetica,sans-serif;color:var(--text);background:#fff;line-height:1.5}
+    a{text-decoration:none;color:inherit}
+    header{
+      position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);
+      border-bottom:1px solid #e9eee9;backdrop-filter:blur(10px)
+    }
+    .nav{max-width:1200px;margin:auto;padding:15px 22px;display:flex;align-items:center;gap:28px}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:30px;color:var(--green);white-space:nowrap}
+    .logo .cart{font-size:31px}.logo b{color:var(--gold)}
+    .logo small{display:block;font-size:11px;color:#233b34;letter-spacing:.4px;margin-top:-4px}
+    .brand{line-height:1}
+    nav{display:flex;gap:25px;margin-left:auto}
+    nav a{font-size:15px;font-weight:600;color:#354b44}
+    nav a:hover{color:var(--green)}
+    .search{border:1px solid #cfd9d2;border-radius:30px;padding:10px 16px;width:260px;outline:none}
+    .cart-btn{border:0;background:var(--green);color:white;border-radius:25px;padding:10px 15px;font-weight:700;cursor:pointer}
+    .hero{position:relative;overflow:hidden;background:var(--cream)}
+    .hero img{width:100%;display:block;max-height:570px;object-fit:cover}
+    .hero-content{
+      position:absolute;left:7%;top:15%;max-width:420px;background:rgba(255,250,240,.76);
+      padding:22px;border-radius:18px;backdrop-filter:blur(4px)
+    }
+    .eyebrow{font-size:17px;font-weight:700;color:var(--green);margin-bottom:8px}
+    h1{font-size:clamp(42px,6vw,70px);line-height:.95;margin-bottom:15px}
+    h1 span{color:var(--green)} h1 em{color:var(--gold);font-style:normal}
+    .tagline{font-size:27px;font-weight:600;margin-bottom:10px}
+    .location{font-weight:700;margin-bottom:20px}
+    .btn{display:inline-block;background:var(--green);color:white;padding:13px 23px;border-radius:30px;font-weight:800}
+    .btn:hover{background:#0c4c2e}
+    section{max-width:1200px;margin:auto;padding:55px 22px}
+    .section-title{text-align:center;margin-bottom:30px}
+    .section-title h2{font-size:34px;color:var(--dark)}
+    .section-title p{color:var(--muted)}
+    .categories{display:grid;grid-template-columns:repeat(7,1fr);gap:16px}
+    .cat{background:white;border:1px solid #e6ece6;border-radius:18px;padding:18px 10px;text-align:center;box-shadow:0 6px 18px rgba(18,99,61,.06)}
+    .cat .icon{font-size:40px;margin-bottom:8px}.cat strong{font-size:14px}
+    .benefits{background:var(--light);max-width:none}
+    .benefit-grid{max-width:1200px;margin:auto;display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+    .benefit{text-align:center;padding:12px;font-weight:700}.benefit span{font-size:28px;display:block;margin-bottom:5px}
+    .about{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+    .about h2{font-size:40px;line-height:1.1;margin:8px 0 15px}
+    .about p{color:var(--muted);font-size:17px}
+    .points{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:25px}
+    .point{padding:17px;background:var(--light);border-radius:15px;font-weight:700}
+    .cta{background:linear-gradient(120deg,var(--green),#1b8050);color:white;border-radius:28px;text-align:center;padding:55px 20px}
+    .cta h2{font-size:40px;margin-bottom:8px}.cta p{margin-bottom:20px}
+    .cta .btn{background:white;color:var(--green)}
+    footer{background:#102c24;color:#dce8e2;padding:40px 22px}
+    .footer-inner{max-width:1200px;margin:auto;display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
+    footer h3{color:white;margin-bottom:8px} footer p{color:#b8c9c1}
+    @media(max-width:900px){
+      nav{display:none}.search{width:180px}.categories{grid-template-columns:repeat(3,1fr)}
+      .benefit-grid{grid-template-columns:repeat(2,1fr)}.about{grid-template-columns:1fr}
+      .hero-content{position:relative;left:auto;top:auto;margin:0;padding:30px 22px;background:var(--cream);max-width:none}
+      .hero img{max-height:360px}.logo{font-size:25px}
+    }
+    @media(max-width:560px){
+      .nav{padding:12px 14px}.search{display:none}.categories{grid-template-columns:repeat(2,1fr)}
+      .benefit-grid{grid-template-columns:1fr}.points{grid-template-columns:1fr}
+      .hero img{min-height:240px;object-fit:cover}.tagline{font-size:23px}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <a class="logo" href="#">
+      <span class="cart">🛒</span>
+      <span class="brand">Rika<span>o</span><small>Grocery Delivery & Services</small></span>
+    </a>
+    <nav>
+      <a href="#home">Home</a><a href="#shop">Shop</a><a href="#categories">Categories</a>
+      <a href="#about">About Us</a><a href="#contact">Contact</a>
+    </nav>
+    <input class="search" type="search" placeholder="Search groceries, daily needs...">
+    <button class="cart-btn" onclick="alert('Your cart is ready!')">🛒 <span id="count">0</span></button>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="home" style="padding:0;max-width:none">
+    <img src="assets/rikao-hero.png" alt="Rikao grocery delivery in Nagaur">
+    <div class="hero-content">
+      <div class="eyebrow">Nagaur ka Apna</div>
+      <h1><span>Rika</span><em>o</em></h1>
+      <div class="tagline">You Order. We Deliver.</div>
+      <div class="location">📍 Nagaur, Rajasthan</div>
+      <a class="btn" href="#shop">Shop Now →</a>
+    </div>
+  </section>
+
+  <section id="categories">
+    <div class="section-title">
+      <h2>Everything You Need, Locally</h2>
+      <p>Fresh groceries and everyday services for Nagaur.</p>
+    </div>
+    <div class="categories">
+      <div class="cat"><div class="icon">🥬</div><strong>Fresh Vegetables<br>& Fruits</strong></div>
+      <div class="cat"><div class="icon">🌾</div><strong>Atta, Rice &<br>Daily Essentials</strong></div>
+      <div class="cat"><div class="icon">🌶️</div><strong>Spices &<br>Dry Fruits</strong></div>
+      <div class="cat"><div class="icon">🥛</div><strong>Dairy &<br>Frozen Products</strong></div>
+      <div class="cat"><div class="icon">🧴</div><strong>Household &<br>Personal Care</strong></div>
+      <div class="cat"><div class="icon">🥖</div><strong>Bakery &<br>Snacks</strong></div>
+      <div class="cat"><div class="icon">🧰</div><strong>Other Services<br>As Per Your Need</strong></div>
+    </div>
+  </section>
+
+  <div class="benefits">
+    <div class="benefit-grid">
+      <div class="benefit"><span>🌱</span>Fresh & Quality<br>Products</div>
+      <div class="benefit"><span>⏱️</span>On-Time<br>Delivery</div>
+      <div class="benefit"><span>📍</span>Nagaur<br>Local Service</div>
+      <div class="benefit"><span>🛡️</span>Safe & Secure<br>Payments</div>
+      <div class="benefit"><span>❤️</span>Your Satisfaction<br>Our Priority</div>
+    </div>
+  </div>
+
+  <section id="about">
+    <div class="about">
+      <div>
+        <p class="eyebrow">WHY RIKAO?</p>
+        <h2>Because Nagaur<br>Deserves Better.</h2>
+        <p>From fresh groceries to daily essentials, Rikao brings your needs right to your doorstep. We support local businesses, serve local customers, and grow together with Nagaur.</p>
+        <div class="points">
+          <div class="point">📍 Support Local Businesses</div>
+          <div class="point">🌱 Fresh & Healthy Choices</div>
+          <div class="point">🏠 Convenient Ordering</div>
+          <div class="point">😊 Happiness in Every Delivery</div>
+        </div>
+      </div>
+      <div class="cta">
+        <h2>Nagaur ka Apna Rikao</h2>
+        <p>Local needs. Local service. Local support.</p>
+        <a class="btn" href="#shop">Start Shopping →</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="shop">
+    <div class="cta">
+      <h2>Order from Rikao</h2>
+      <p>Online ordering is coming soon. Stay connected for launch updates.</p>
+      <a class="btn" href="#contact">Contact Rikao</a>
+    </div>
+  </section>
+</main>
+
+<footer id="contact">
+  <div class="footer-inner">
+    <div><h3>Rikao</h3><p>Grocery Delivery & Services</p><p>Nagaur, Rajasthan</p></div>
+    <div><h3>Quick Links</h3><p><a href="#home">Home</a> · <a href="#categories">Categories</a> · <a href="#about">About</a></p></div>
+    <div><h3>Contact</h3><p>Add your email / WhatsApp / phone here before launch.</p></div>
+  </div>
+</footer>
+</body>
+</html>
